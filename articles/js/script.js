@@ -18,18 +18,31 @@ document.addEventListener("DOMContentLoaded", function () {
     // קבלת כתובת העמוד הנוכחי
     const currentPage = window.location.pathname.split("/").pop();
 
-    // מציאת אלמנט הרשימה ב-HTML
+    // מציאת אלמנטי הרשימה ב-HTML
     const sidebarList = document.querySelector(".sidebar ul");
+    const mobileArticlesList = document.querySelector(".articles-list");
 
-    // יצירת הרשימה הדינמית
+    // יצירת הרשימות הדינמיות
     articles.forEach(article => {
-        if (article.link !== currentPage) { // לא להציג את המאמר הנוכחי
-            const listItem = document.createElement("li");
-            const link = document.createElement("a");
-            link.href = article.link;
-            link.textContent = article.title;
-            listItem.appendChild(link);
-            sidebarList.appendChild(listItem);
+        if (article.link !== currentPage) {
+            // Sidebar
+            if (sidebarList) {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = article.link;
+                a.textContent = article.title;
+                li.appendChild(a);
+                sidebarList.appendChild(li);
+            }
+            // Mobile dropdown
+            if (mobileArticlesList) {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = article.link;
+                a.textContent = article.title;
+                li.appendChild(a);
+                mobileArticlesList.appendChild(li);
+            }
         }
     });
 });
