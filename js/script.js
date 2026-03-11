@@ -53,6 +53,37 @@ document.addEventListener('DOMContentLoaded', function () {
         setInterval(showNextTestimonial, 4000);
     }
 
+    // מעבר בין מסלול בסיסי ומתקדם (Pricing Toggle)
+    const toggleButton   = document.getElementById('toggleButton');
+    const basicTab       = document.getElementById('basicTab');
+    const advancedTab    = document.getElementById('advancedTab');
+    const basicPanel     = document.getElementById('basicPricing');
+    const advancedPanel  = document.getElementById('advancedPricing');
+
+    if (toggleButton && basicPanel && advancedPanel) {
+        function showBasic() {
+            basicPanel.classList.add('active');
+            advancedPanel.classList.remove('active');
+            basicTab.classList.add('active');
+            advancedTab.classList.remove('active');
+        }
+        function showAdvanced() {
+            advancedPanel.classList.add('active');
+            basicPanel.classList.remove('active');
+            advancedTab.classList.add('active');
+            basicTab.classList.remove('active');
+        }
+        toggleButton.addEventListener('click', function () {
+            if (basicPanel.classList.contains('active')) {
+                showAdvanced();
+            } else {
+                showBasic();
+            }
+        });
+        if (basicTab)    basicTab.addEventListener('click', showBasic);
+        if (advancedTab) advancedTab.addEventListener('click', showAdvanced);
+    }
+
     // ניווט במובייל - תפריט המבורגר
     const mobileMenu = document.querySelector(".mobile-overlay");
     const menuToggle = document.querySelector(".menu-toggle");
