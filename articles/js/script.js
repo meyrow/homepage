@@ -18,31 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // קבלת כתובת העמוד הנוכחי
     const currentPage = window.location.pathname.split("/").pop();
 
-    // מציאת אלמנטי הרשימה ב-HTML
-    const sidebarList = document.querySelector(".sidebar ul");
-    const mobileArticlesList = document.querySelector(".articles-list");
-
-    // יצירת הרשימות הדינמיות
-    articles.forEach(article => {
-        if (article.link !== currentPage) {
-            // Sidebar
-            if (sidebarList) {
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-                a.href = article.link;
-                a.textContent = article.title;
-                li.appendChild(a);
-                sidebarList.appendChild(li);
-            }
-            // Mobile dropdown
-            if (mobileArticlesList) {
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-                a.href = article.link;
-                a.textContent = article.title;
-                li.appendChild(a);
-                mobileArticlesList.appendChild(li);
-            }
+    // הסתרת הקישור של העמוד הנוכחי מהסיידבר ומהתפריט הנייד
+    // (הקישורים עצמם כתובים ב-HTML לטובת גוגל – JS רק מסתיר את הנוכחי)
+    document.querySelectorAll("[data-article]").forEach(function(li) {
+        if (li.dataset.article === currentPage) {
+            li.style.display = "none";
         }
     });
 });
