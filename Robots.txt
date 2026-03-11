@@ -1,6 +1,11 @@
-Sitemap: http://toassociate.com/sitemap.xml
 User-agent: *
 Disallow: /php/
-Disallow: /images/
 Disallow: /fonts/
 Disallow: /css/
+Disallow: /js/
+Disallow: /landingpage/
+Disallow: /error_page/
+Disallow: /credit_iframe.html
+Disallow: /message_1_2024.html
+
+Sitemap: https://www.toassociate.com/sitemap.xml
