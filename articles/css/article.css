@@ -1,0 +1,373 @@
+﻿/* עיצוב כללי של הדף */
+body {
+    background: linear-gradient(135deg, #E0F7F7, #C0E7E7); /* רקע דף עם מעבר צבע עדין */
+    color: #333; /* צבע טקסט כהה לקריאות גבוהה */
+    font-family: Arial, sans-serif; /* גופן קריא ופשוט */
+    margin: 0; /* הסרת ריווח חיצוני של הדף */
+    padding: 0; /* הסרת ריווח פנימי של הדף */
+}
+
+.header-title {
+    background: linear-gradient(135deg, #008B8B, #40E0D0); /* רקע מדורג תורכיז */
+    color: white; /* צבע טקסט לבן */
+    padding: 70px 20px; /* ריווח פנימי */
+    text-align: center; /* יישור מרכזי */
+    position: relative; /* לתוספות עתידיות */
+    overflow: hidden; /* לטיפול ברקע */
+    border-radius: 0px; /* פינות מעוגלות */
+}
+
+.header-title h1 {
+    margin: 0; /* הסרת רווחים מיותרים */
+    font-size: 2.5em; /* גודל כותרת */
+    line-height: 1.2;
+}
+
+h2 {
+    color: #008B8B;
+    margin-top: 20px;
+    border-bottom: 2px solid #40E0D0;
+    padding-bottom: 5px;
+    font-size: 1.5em; /* גודל הכותרת */
+}
+
+h3 {
+    text-align: right; /* מוודא שהכותרת מיושרת להתחלה */
+    margin-bottom: 5px; /* מצמצם את הריווח מתחת לכותרת */
+    font-size: 1.2em; /* גודל טקסט מותאם */
+    font-weight: bold; /* הופך את הכותרת לבולטת */
+    color: #008B8B; /* צבע מותאם לסגנון העיצובי */
+}
+
+h3 + p {
+    margin-top: 0; /* מסיר את הרווח העליון של הפסקה מתחת לכותרת */
+}
+
+
+/* עיצוב מכולה ראשית */
+.container {
+    display: flex; /* פריסה אופקית של האלמנטים */
+    gap: 20px; /* רווח בין טור המאמר לטור הצד */
+    align-items: flex-start; /* יישור עליון של כל הטורים */
+    padding: 20px; /* ריווח פנימי מסביב */
+    margin: 0 auto; /* יישור מרכזי של התוכן */
+    max-width: 1200px; /* מגבלת רוחב כוללת */
+}
+
+/* עיצוב המאמר */
+article {
+    flex: 3; /* המאמר יתפוס את רוב רוחב המכולה */
+    background: white; /* רקע לבן למאמר */
+    padding: 20px; /* ריווח פנימי */
+    border-radius: 8px; /* פינות מעוגלות */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* צל להבלטה */
+    display: flex; /* מאפשר פריסה אנכית */
+    flex-direction: column; /* פריסה אנכית בתוך המאמר */
+    justify-content: space-between; /* מרווח אוטומטי בין התוכן לכפתורים */
+    height: 100%; /* גובה מלא של המאמר */
+}
+
+/* עיצוב הרשימה בתוך המאמר */
+article ul {
+    background: #f9f9f9; /* רקע בהיר לפריטי רשימה */
+    padding: 15px; /* ריווח פנימי לפריטים */
+    border-radius: 5px; /* פינות מעוגלות */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* צל קל להפרדה ויזואלית */
+}
+
+/* עיצוב טור הצד ("עוד בנושא") */
+.sidebar {
+    flex: 1; /* טור הצד יתפוס חלק קטן יחסית */
+    background: #f9f9f9; /* רקע בהיר לטור הצד */
+    padding: 15px; /* ריווח פנימי */
+    border-radius: 8px; /* פינות מעוגלות */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* צל להבלטה */
+    font-family: Arial, sans-serif; /* שמירה על עקביות בגופן */
+    position: sticky; /* מקבע את טור הצד בזמן גלילה */
+    top: 20px; /* שומר על מרחק מראש הדף */
+}
+
+/* כותרת טור הצד */
+.sidebar h3 {
+    font-size: 1.2em; /* גודל כותרת גדול יחסית */
+    color: #008B8B; /* צבע הכותרת - תואם לעיצוב הדף */
+    margin-bottom: 10px; /* מרווח מתחת לכותרת */
+    text-align: center; /* מרכז הכותרת */
+}
+
+/* עיצוב הרשימה בטור הצד */
+.sidebar ul {
+    list-style: none; /* הסרת הנקודות מהרשימה */
+    padding: 0; /* הסרת ריווח פנימי של הרשימה */
+    margin: 0; /* הסרת ריווח חיצוני של הרשימה */
+}
+
+.sidebar ul li {
+    margin-bottom: 8px; /* רווח בין הפריטים */
+    background: #ffffff; /* רקע לבן לכל פריט */
+    padding: 10px; /* ריווח פנימי לכל פריט */
+    border-radius: 4px; /* פינות מעוגלות לכל פריט */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* צל קל להפרדה */
+}
+
+/* עיצוב קישורים בטור הצד */
+.sidebar ul li a {
+    display: block; /* מגדיר את הקישור כאלמנט בלוק */
+    font-size: 0.9em; /* גודל גופן מעט קטן */
+    font-weight: bold; /* מדגיש את הטקסט */
+    color: #008B8B; /* צבע הקישור */
+    text-align: center; /* מרכז את הטקסט */
+    transition: color 0.3s ease, background 0.3s ease; /* אפקט חלק למעבר צבעים */
+}
+
+/* אפקט מעבר על קישורים בטור הצד */
+.sidebar ul li a:hover {
+    color: white; /* צבע טקסט בלחיצה */
+    background: linear-gradient(135deg, #008B8B, #40E0D0); /* רקע מדורג בזמן מעבר */
+    border-radius: 4px; /* שמירה על פינות מעוגלות */
+    padding: 5px 10px; /* הוספת ריווח פנימי */
+    text-decoration: none; /* הסרת קו תחתי */
+}
+
+/* עיצוב כפתורים בתחתית */
+.actions {
+    margin-top: 20px; /* מרווח מעל הכפתורים */
+    text-align: center; /* יישור מרכזי */
+}
+
+.cta-button {
+    background: linear-gradient(135deg, #008B8B, #40E0D0); /* רקע מדורג לכפתור */
+    color: white; /* צבע טקסט לבן */
+    padding: 15px 25px; /* ריווח פנימי גדול לכפתור */
+    font-size: 1.2em; /* גודל גופן גדול */
+    border: none; /* הסרת מסגרת הכפתור */
+    border-radius: 8px; /* פינות מעוגלות */
+    text-decoration: none; /* הסרת קו תחתי */
+    display:block; /* הכפתור תופס רוחב תוכן */
+    margin: 10px; /* ריווח מסביב לכפתורים */
+    text-align: center; /* מרכז את הטקסט בכפתור */
+}
+
+.cta-button:hover {
+    background: linear-gradient(135deg, #40E0D0, #008B8B); /* שינוי כיוון הצבעים בזמן מעבר */
+}
+.btn-primary {
+    background: linear-gradient(135deg, #008B8B, #40E0D0); /* רקע מדורג */
+    color: white; /* צבע טקסט לבן */
+    padding: 15px 25px; /* ריווח פנימי */
+    font-size: 1.2em; /* גודל גופן */
+    border: none; /* ללא מסגרת */
+    border-radius: 8px; /* פינות מעוגלות */
+    text-decoration: none; /* ללא קו תחתון */
+    display: inline-block; /* סגנון כפתור */
+    text-align: center; /* טקסט ממורכז */
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #40E0D0, #008B8B); /* שינוי צבע בזמן מעבר */
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar { 
+        display: none !important; 
+    }
+}
+
+
+/* תפריט המבורגר */
+.hamburger-menu {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+    z-index: 1100;
+    display: none; /* מוסתר במסכים גדולים */
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    margin: 5px 0;
+    background: black;
+    border-radius: 2px;
+}
+
+/* דפית תפריט */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* רקע כהה חצי שקוף */
+    backdrop-filter: blur(8px); /* טשטוש */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* ממקם את הרשימה במרכז הדף (מלמעלה למטה) */
+    z-index: 1000;
+    padding-top: 60px;
+}
+
+
+.mobile-overlay.open {
+    display: flex;
+}
+
+/* כפתור סגירה */
+.close-overlay {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+
+/* רשימת התפריט */
+.mobile-overlay ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 80%;
+    background: transparent; /* ביטול רקע לבן */
+    border-radius: 8px;
+}
+
+.mobile-overlay ul li {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent; /* ביטול רקע */
+}
+
+.mobile-overlay ul li:last-child {
+    border-bottom: none;
+}
+
+.mobile-overlay ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: block;
+    transition: background 0.3s ease-in-out;
+}
+
+
+.mobile-overlay ul li a:hover {
+    background: rgba(255, 255, 255, 0.1); /* רקע קל בהובר */
+    border-radius: 5px;
+}
+
+/* רשימה נפתחת */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+.dropdown.open .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 10px;
+}
+
+.dropdown-menu li a {
+    color: black;
+    text-decoration: none;
+    font-size: 1em;
+    display: block;
+    padding: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+.dropdown-menu li a:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+ /* עיצוב רשימת המאמרים בתוך התפריט */
+.articles-list {
+    max-height: 200px; /* מגביל את הגובה כך שרק 4 מאמרים יהיו גלויים */
+    overflow-y: auto; /* מאפשר גלילה לרשימה */
+    width: 100%; /* מרחיב את הרשימה לכל רוחב התפריט */
+    padding: 10px 0;
+    text-align: center;
+}
+
+.articles-list li {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.articles-list li:last-child {
+    border-bottom: none;
+}
+
+.articles-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    display: block;
+    transition: background 0.3s ease-in-out;
+}
+
+.articles-list a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+/* התאמות למובייל */
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .mobile-overlay {
+        display: none;
+    }
+
+    .mobile-overlay.open {
+        display: flex;
+    }
+}
+
+/* הסתרת ההמבורגר במסכים גדולים */
+@media screen and (min-width: 769px) {
+    .hamburger-menu {
+        display: none;
+    }
+}
+
+
+
+
+footer {
+    background: linear-gradient(135deg, #008B8B, #40E0D0); /* רקע מדורג תורכיז */
+    color: white; /* צבע טקסט לבן */
+    text-align: center; /* מרכז את הטקסט */
+    padding: 20px 0; /* ריווח פנימי */
+    margin-top: 20px; /* רווח עליון */
+    border-radius: 8px; /* פינות מעוגלות */
+    font-size: 1em; /* גודל טקסט נעים לקריאה */
+}
+
+html {
+    scroll-behavior: smooth;
+}

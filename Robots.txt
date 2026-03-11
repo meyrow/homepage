@@ -1,0 +1,6 @@
+Sitemap: http://toassociate.com/sitemap.xml
+User-agent: *
+Disallow: /php/
+Disallow: /images/
+Disallow: /fonts/
+Disallow: /css/

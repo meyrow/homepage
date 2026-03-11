@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<title>עמותות אונליין</title>
+
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="icon" href="https://toassociate.com/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-rtl.min.css">
+	
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/colors/color.css">
+	<link href="css/rtl.css" type="text/css" rel="stylesheet" media="all">
+	
+	<style type="text/css">
+	.btn-primary {
+    background: rgb(55, 60, 255);
+    color: #ffffff;
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+	</style>
+
+	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function () {		
+		$("#myform").submit(function(event){
+			
+			/* stop form from submitting normally othervise will forward after submit*/
+            event.preventDefault();
+			
+            var $form = $(this),
+            formurl = $form.attr('action');
+            $.ajax(
+	        		{
+	                	headers: { 'x-csrf-token': 'aWxhbkBpc3lzLmNvLmlsIykoK19uYWxpIyktK180'},
+	                    type: 'POST',
+	                    url: formurl,
+	                    contentType: 'application/json; charset=utf-8',
+	                    dataType: 'json',
+	                    data: JSON.stringify({ 'amount': $("#inputAmount").val(),'email':$("#inputEmail").val() }),    
+	                    success: function(response)
+	                    {
+	                    	//console.log(response);
+	                    	$('#myform input[type="text"]').val('');
+	                    	$('#myform input[type="email"]').val('');
+	                        alert(response);
+
+	                    },
+	                    error: function(response)
+	                    {
+	                    	//console.log(response);
+	                    	alert(response.responseJSON);
+	                    }
+	                });
+
+		}); 
+		});
+	
+	</script>
+
+</head>
+
+<body>
+<!--header-->
+	<div class="wrapper header navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="row logo-menu-wrap">					
+					
+					<div class="col-md-9 col-sm-12 menu">
+						<a id="mobile-nav-btn" class="visible-xs" href="#"><i class="fa fa-chevron-down fa-2x"></i></a>
+						<div class="nav">
+							<ul>
+								<li><a href="./#home"><i class="fa fa-home fa-fw"></i> <span>בית</span></a></li>
+								<li><a href="./#features"><i class="fa fa-users fa-fw"></i> <span>עמותות אונליין</span></a></li>
+								<li><a href="./#gallary"><i class="fa fa-youtube-play fa-fw"></i> <span></span>הדגמה</a></li>
+								<li><a href="./#FAQ"><i class="fa fa-question-circle fa-fw"></i> <span>FAQ</span></a></li>
+								<li><a href="./#pricing"><i class="fa fa-question-circle fa-fw"></i> <span>מחירון</span></a></li>
+								<li><a href="./#news-Letter"><i class="fa fa-envelope fa-fw"></i> <span>יצירת קשר</span></a></li>
+
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-12 logo">
+					<img src="images/miniLogo.png" style="padding-bottom:14px" alt=""><a href="#">toAssociate</a>
+						<!-- <a href="#"><i class="fa fa-th-large fa-fw"></i>toAssociate</a> -->
+					</div>
+
+			</div><!--/row logo-menu-wrap-->
+
+		</div><!--/container-->
+	</div><!--/wrapper header-->
+	
+<div class="wrapper iframe_donation-wrap">
+
+<div class="container">
+    <div class="col-sm-6">
+    <form id='myform' action='https://toassociate.com/toassociate2_v2_0/invoices/createReceipt/iframe'>
+        <fieldset>
+        	<legend>הדגמת קמפיין לגיוס תרומות</legend>
+        	<legend>צרו קשר ונעזור לכם בגיוס תרומות לעמותה</legend>
+            <legend>סליקת אשראי ורישום קבלה בעמותות אונליין</legend>
+            <div class="control-group">
+                <label class="control-label">שם מלא של בעל הכרטיס</label>
+                <div class="row">
+                        <div class="col-md-6">
+                        <input type="text" class="form-control" id="inputFirstName" placeholder="שם פרט" title="שם פרט" required>
+                        </div>
+                        <div class="col-md-6">
+                        <input type="text" class="form-control" id="inputLastName" placeholder="שם משפחה" title="שם משפחה" required>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6">
+                        <label for="inputEmail" class="control-label">דוא"ל</label>
+					    <input type="email" class="form-control" id="inputEmail" placeholder="מייל אישי של התורם" data-error="כתובת אינה תקינה" required>
+					    <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="col-md-6">
+                        <label class="control-label">מספר תעודת זהות</label>
+		                <div class="controls">
+		                    <input type="text" class="form-control" id="inputTeudatZehut" placeholder="מספר תעודת זהות של בעל הכרטיס" pattern="\d{9}" title="מספר תעודת זהות של בעל הכרטיס" required>
+		                </div>
+                        </div>
+                </div>
+                
+                <div class="row">
+                        <div class="col-md-6">
+                        	<label class="control-label">מספר כרטיס אשראי</label>
+					    	<input type="text" class="form-control" id="inputCardNumber" placeholder="מספר כרטיס אשראי" data-minlength="8" pattern="^[_0-9]{1,}$" maxlength="16" title="מספר כרטיס אשראי" required>
+                        </div>
+                        <div class="col-md-6">
+                        <label class="control-label">סכום בש"ח</label>
+		                <div class="controls">
+		                    <input type="text" class="form-control" id="inputAmount" placeholder="סכום כספי לסליקה" pattern="^[_0-9]{1,}$" title="סכום כספי לסליקה" required>
+		                </div>
+                        </div>
+                </div>
+			</div>
+            <div class="control-group">
+                
+                <div class="controls">
+                    <div class="row">
+                        <div class="col-md-6">
+                        <label class="control-label">תוקף הכרטיס</label>
+                            <select class="form-control">
+                                <option value="01">1 - ינואר</option>
+                                <option value="02">2 - פברואר</option>
+                                <option value="03">3 - מרץ</option>
+                                <option value="04">4 - אפריל</option>
+                                <option value="05">5 - מאי</option>
+                                <option value="06">6 - יוני</option>
+                                <option value="07">7 - יולי</option>
+                                <option value="08">8 - אוגוסט</option>
+                                <option value="09">9 - ספטבמר</option>
+                                <option value="10">10- אוקטובר</option>
+                                <option value="11">11- נובמבר</option>
+                                <option value="12">12- דצמבר</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                        <label class="control-label">שנה</label>
+                            <select class="form-control">
+                                <option>2017</option>
+                                <option>2018</option>
+                                <option>2019</option>
+                                <option>2020</option>
+                                <option>2021</option>
+                                <option>2022</option>
+                                <option>2023</option>
+                                <option>2024</option>
+                                <option>2025</option>
+                                <option>2026</option>
+                                <option>2027</option>
+                                <option>2028</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                        <label class="control-label">CVV</label>
+                            <input type="text" class="form-control" id="inputCVV" placeholder="על גב הכטיס" autocomplete="off" maxlength="3" pattern="\d{3}" title="שלוש ספרות על גב הכרטיס" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="control-group">
+              <label class="control-label"></label>
+              <div class="controls">
+                <button type="submit" id="submit-button" class="btn btn-primary">שלח לסליקה</button> 
+              </div>
+            </div>
+        </fieldset>
+        </form>
+    </div>
+	</div>
+</div>
+<div class="wrapper footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 copyright">Copyright &copy; 2013-2017 toAssociate </div>				
+			</div><!--/row-->
+		</div><!--/container-->
+	</div><!--/footer-->
+</body>
+</html>
